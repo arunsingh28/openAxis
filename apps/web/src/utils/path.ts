@@ -5,7 +5,7 @@ export const appPath = {
     REGISTER: "auth/register",
   },
   DASHBOARD: {
-    INDEX: "/dashboard",
+    INDEX: "/",
     
   }
 };
