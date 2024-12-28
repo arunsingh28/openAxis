@@ -1,17 +1,24 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
+  "globalDependencies": [".env*"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "inputs": ["src/**", "package.json", "tsconfig.json"],
+      "outputs": ["dist/**"]
+    },
+    "test": {
+      "dependsOn": ["^test"],
+      "inputs": ["src/**", "jest.config.js"]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": ["^lint"],
+      "inputs": ["src/**", "*.json"]
     },
     "check-types": {
-      "dependsOn": ["^check-types"]
+      "dependsOn": ["^check-types"],
+      "inputs": ["src/**", "tsconfig.json"]
     },
     "dev": {
       "cache": false,
