@@ -1,7 +1,11 @@
+import { Button } from "antd"
+
 
 const Index = () => {
   return (
-    <div>Index</div>
+    <div>
+      <Button>Init Porject with node.js</Button>
+    </div>
   )
 }
 
