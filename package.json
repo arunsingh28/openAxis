@@ -1,5 +1,5 @@
 {
-  "name": "openaixs",
+  "name": "openaxis",
   "private": true,
   "scripts": {
     "build": "turbo build",
