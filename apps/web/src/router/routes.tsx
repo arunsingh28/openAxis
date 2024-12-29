@@ -1,10 +1,10 @@
-import { RouteObject } from "react-router-dom";
+import { RouteObject } from 'react-router-dom';
 
-import { appPath } from "@/utils/path";
+import { appPath } from '@/utils/path';
 
-import IndexLayout from "@/layouts/index";
+import IndexLayout from '@/layouts/index';
 
-import Index from "@/views/index";
+import Index from '@/views/index';
 
 export const routes: RouteObject[] = [
   {
@@ -13,8 +13,8 @@ export const routes: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <Index />,
-      },
-    ],
-  },
+        element: <Index />
+      }
+    ]
+  }
 ];

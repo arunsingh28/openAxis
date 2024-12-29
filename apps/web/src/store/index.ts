@@ -1,11 +1,11 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 
-import projectDeducer from "./slices/projectSlice";
+import projectDeducer from './slices/projectSlice';
 
 export const store = configureStore({
   reducer: {
-    project: projectDeducer,
-  },
+    project: projectDeducer
+  }
 });
 
 export type RootState = ReturnType<typeof store.getState>;
