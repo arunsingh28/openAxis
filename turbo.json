@@ -1,28 +1,35 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
-  "globalDependencies": [".env*"],
+  "globalDependencies": [
+    ".env*",
+    "go.mod",
+    "go.sum",
+    "package.json",
+    "vite.config.*"
+  ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["src/**", "package.json", "tsconfig.json"],
-      "outputs": ["dist/**"]
+      "inputs": ["**/*.go", "go.mod", "go.sum", "src/**", "vite.config.*"],
+      "outputs": ["bin/**", "dist/**"]
     },
     "test": {
       "dependsOn": ["^test"],
-      "inputs": ["src/**", "jest.config.js"]
+      "inputs": ["**/*.go", "go.mod", "go.sum", "src/**", "jest.config.js"]
     },
     "lint": {
       "dependsOn": ["^lint"],
-      "inputs": ["src/**", "*.json"]
+      "inputs": ["**/*.go", "go.mod", "go.sum", "src/**", "*.json"]
     },
     "check-types": {
       "dependsOn": ["^check-types"],
-      "inputs": ["src/**", "tsconfig.json"]
+      "inputs": ["**/*.go", "go.mod", "go.sum", "src/**", "tsconfig.json"]
     },
     "dev": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "inputs": ["**/*.go", "go.mod", "go.sum", "src/**", "vite.config.*"]
     }
   }
 }
