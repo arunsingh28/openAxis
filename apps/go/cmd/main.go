@@ -18,7 +18,10 @@ func main() {
 
 	router := http.NewServeMux()
 
-	router.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {})
+	router.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.Write([]byte(`{"message": "Hello, World!"}`))
+	})
 
 	server := http.Server{
 		Addr:    cfg.HTTPServer.Address,
