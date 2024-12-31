@@ -11,21 +11,19 @@ import (
 	"time"
 
 	"github.com/arunsingh28/openaxis/internal/config"
+	router "github.com/arunsingh28/openaxis/internal/http"
 )
 
 func main() {
 	cfg := config.MustLoad()
 
-	router := http.NewServeMux()
+	mux := http.NewServeMux()
 
-	router.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		w.Write([]byte(`{"message": "Hello, World!"}`))
-	})
+	router.RegisterRoutes(mux)
 
 	server := http.Server{
 		Addr:    cfg.HTTPServer.Address,
-		Handler: router,
+		Handler: mux,
 	}
 
 	slog.Info("starting server", slog.String("address", cfg.HTTPServer.Address))
