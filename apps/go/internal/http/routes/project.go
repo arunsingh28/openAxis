@@ -7,5 +7,5 @@ import (
 )
 
 func RegisterProjectRoutes(mux *http.ServeMux) {
-	mux.HandleFunc("GET /init-project", project.InitProject)
+	mux.HandleFunc("POST /init-project", project.InitProject)
 }
